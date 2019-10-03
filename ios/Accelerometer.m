@@ -2,7 +2,8 @@
 
 
 #import <React/RCTBridge.h>
-#import <React/RCTEventDispatcher.h>
+#import <React/RCTEventEmitter.h>
+#import <React/RCTBridgeModule.h>
 #import "Accelerometer.h"
 
 @implementation Accelerometer
@@ -24,6 +25,10 @@ RCT_EXPORT_MODULE();
 + (BOOL)requiresMainQueueSetup
 {
     return NO;
+}
+
+- (NSArray<NSString *> *)supportedEvents {
+    return @[@"Accelerometer"];
 }
 
 RCT_REMAP_METHOD(isAvailable,
