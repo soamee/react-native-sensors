@@ -3,7 +3,8 @@
 
 
 #import <React/RCTBridge.h>
-#import <React/RCTEventDispatcher.h>
+#import <React/RCTEventEmitter.h>
+#import <React/RCTBridgeModule.h>
 #import "Magnetometer.h"
 
 @implementation Magnetometer
@@ -25,6 +26,10 @@ RCT_EXPORT_MODULE();
 + (BOOL)requiresMainQueueSetup
 {
     return NO;
+}
+
+- (NSArray<NSString *> *)supportedEvents {
+    return @[@"Magnetometer"];
 }
 
 RCT_REMAP_METHOD(isAvailable,

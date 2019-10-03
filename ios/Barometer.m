@@ -3,7 +3,8 @@
 
 #import "Barometer.h"
 #import <React/RCTBridge.h>
-#import <React/RCTEventDispatcher.h>
+#import <React/RCTEventEmitter.h>
+#import <React/RCTBridgeModule.h>
 #import <CoreMotion/CoreMotion.h>
 
 @implementation Barometer
@@ -25,6 +26,10 @@ RCT_EXPORT_MODULE();
 + (BOOL)requiresMainQueueSetup
 {
     return NO;
+}
+
+- (NSArray<NSString *> *)supportedEvents {
+    return @[@"Barometer"];
 }
 
 RCT_REMAP_METHOD(isAvailable,

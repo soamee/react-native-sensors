@@ -2,7 +2,8 @@
 
 #import "Gyroscope.h"
 #import <React/RCTBridge.h>
-#import <React/RCTEventDispatcher.h>
+#import <React/RCTEventEmitter.h>
+#import <React/RCTBridgeModule.h>
 
 @implementation Gyroscope
 
@@ -22,6 +23,10 @@ RCT_EXPORT_MODULE();
 + (BOOL)requiresMainQueueSetup
 {
     return NO;
+}
+
+- (NSArray<NSString *> *)supportedEvents {
+    return @[@"Gyroscope"];
 }
 
 RCT_REMAP_METHOD(isAvailable,
